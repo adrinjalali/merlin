@@ -48,11 +48,11 @@ python ${frontend}/utils/genScmFile.py \
                             ${in_txt} \
                             ${testDir}/prompt-utt \
                             ${testDir}/new_test_sentences.scm \
-                            ${testDir}/test_id_list.scp 
+                            ${testDir}/test_id_list.scp
 
 ### generate utt from scheme file
 echo "generating utts from scheme file"
-${FESTDIR}/bin/festival -b ${testDir}/new_test_sentences.scm 
+${FESTDIR}/bin/festival -b ${testDir}/new_test_sentences.scm
 
 ### convert festival utt to lab
 echo "converting festival utts to labels..."

@@ -21,14 +21,14 @@ if [ "$setup_data" = true ]; then
     # copy the data
     mkdir -p database
     mkdir -p database/wav
-    mkdir -p database/txt    
-    
+    mkdir -p database/txt
+
     for spkid in $avg_voice; do
         echo "copying the speaker $spkid data to database"
         cp VCTK-Corpus/wav48/$spkid/*.wav database/wav
         cp VCTK-Corpus/txt/$spkid/*.txt database/txt
     done
-    
+
     # create
     for spkid in $adapt_voice; do
         mkdir -p database_$spkid
@@ -99,9 +99,9 @@ echo "######### No. of files ###############" >> $global_config_file
 echo "######################################" >> $global_config_file
 echo "" >> $global_config_file
 
-echo "Train=3258" >> $global_config_file 
-echo "Valid=50" >> $global_config_file 
-echo "Test=50" >> $global_config_file 
+echo "Train=3258" >> $global_config_file
+echo "Valid=50" >> $global_config_file
+echo "Test=50" >> $global_config_file
 echo "" >> $global_config_file
 
 echo "######################################" >> $global_config_file
@@ -109,12 +109,12 @@ echo "############# TOOLS ##################" >> $global_config_file
 echo "######################################" >> $global_config_file
 echo "" >> $global_config_file
 
-#echo "ESTDIR=${merlin_dir}/tools/speech_tools" >> $global_config_file
-#echo "FESTDIR=${merlin_dir}/tools/festival" >> $global_config_file
-#echo "FESTVOXDIR=${merlin_dir}/tools/festvox" >> $global_config_file
-echo "ESTDIR=/l/SRC/speech_tools/bin" >> $global_config_file
-echo "FESTDIR=/l/SRC/festival_2_4/festival" >> $global_config_file
-echo "FESTVOXDIR=/l/SRC/festvox/" >> $global_config_file
+echo "ESTDIR=${merlin_dir}/tools/speech_tools" >> $global_config_file
+echo "FESTDIR=${merlin_dir}/tools/festival" >> $global_config_file
+echo "FESTVOXDIR=${merlin_dir}/tools/festvox" >> $global_config_file
+#echo "ESTDIR=/l/SRC/speech_tools/bin" >> $global_config_file
+#echo "FESTDIR=/l/SRC/festival_2_4/festival" >> $global_config_file
+#echo "FESTVOXDIR=/l/SRC/festvox/" >> $global_config_file
 echo "" >> $global_config_file
 #echo "HTKDIR=${merlin_dir}/tools/bin/htk" >> $global_config_file
 echo "HTKDIR=/l/SRC/htk-3.5/bin" >> $global_config_file
@@ -125,4 +125,3 @@ echo "Merlin default voice settings configured in \"$global_config_file\""
 echo "Modify these params as per your data..."
 echo "eg., sampling frequency, no. of train files etc.,"
 echo "setup done...!"
-
