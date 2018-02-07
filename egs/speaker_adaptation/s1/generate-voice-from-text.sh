@@ -1,5 +1,12 @@
 #!/bin/bash -e
+export USER=`whoami`
+cd s1
+
+global_config_file=conf/global_settings.cfg
+source $global_config_file
+
 if test "$#" -ne 2; then
+    echo
     echo "################################"
     echo "Usage: "
     echo "./generate-voice-from-text.sh <text_to_synthesize> <previously_configured_voice_name>"
@@ -8,16 +15,18 @@ if test "$#" -ne 2; then
 fi
 
 in_txt=$1
+filename=${in_txt// /_} #remove white spaces
+filename=`echo $filename| tr -dc '[:alnum:]\n\r'`
 text_dir=experiments/$2/test_synthesis/custom_txt
 
-touch $text_dir/$in_txt.txt
-echo $in_txt > $text_dir/$in_txt.txt
+touch $text_dir/$filename.txt
+echo $in_txt > $text_dir/$filename.txt
 
 test_dur_conf_file=conf/test_dur_synth_$2.conf
 test_synth_conf_file=conf/test_synth_$2.conf
 
-./07_run_merlin.sh $text_dir $test_dur_conf_file $test_synth_conf_file
-
-echo '#####################################'
-echo '############# DONE ##################'
-echo '#####################################'
+lab_dir=$(dirname $text_dir)
+./scripts/prepare_labels_from_txt.sh $text_dir $lab_dir $global_config_file
+./scripts/submit.sh ${MerlinDir}/src/run_merlin.py $test_dur_conf_file
+./scripts/submit.sh ${MerlinDir}/src/run_merlin.py $test_synth_conf_file
+./scripts/remove_intermediate_files.sh $global_config_file

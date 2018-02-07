@@ -20,7 +20,7 @@ test_dur_config_file=$2
 test_synth_config_file=$3
 
 ### Step 7: synthesize speech from text ###
-echo "Step 7:" 
+echo "Step 7:"
 echo "synthesizing speech from text..."
 
 echo "preparing full-contextual labels using Festival frontend..."
@@ -38,4 +38,3 @@ echo "deleting intermediate synthesis files..."
 
 echo "synthesized audio files are in: experiments/${Voice}/test_synthesis/wav"
 echo "All successfull!! Your demo voice is ready :)"
-

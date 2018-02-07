@@ -41,12 +41,12 @@ else
     scheme_file=new_test_sentences.scm
 fi
 
-### generate a scheme file 
+### generate a scheme file
 python ${frontend}/utils/genScmFile.py \
                             ${inp_txt} \
                             ${out_dir}/prompt-utt \
                             ${out_dir}/$scheme_file \
-                            ${out_dir}/$file_id_scp 
+                            ${out_dir}/$file_id_scp
 
 ### generate utt from scheme file
 echo "generating utts from scheme file"
@@ -78,8 +78,6 @@ else
                             ${out_dir}/$file_id_scp 0
     ### remove any un-necessary files
     rm -rf ${out_dir}/prompt-lab/{full,mono,tmp}
-    
+
    echo "Labels are ready in: ${out_dir}/prompt-lab !!"
 fi
-
-
