@@ -16,7 +16,7 @@ HMMDEFS = 'hmmdefs'
 VFLOORS = 'vFloors'
 
 ##
-HTKDIR = "/home/mariana/projects/merlin/tools/bin/htk"
+HTKDIR = path/to/tools/htk
 HCompV = os.path.join(HTKDIR, 'HCompV')
 HCopy  = os.path.join(HTKDIR, 'HCopy' )
 HERest = os.path.join(HTKDIR, 'HERest')
@@ -360,9 +360,9 @@ NUMCEPS = 12
 
 if __name__ == '__main__':
 
-    work_dir = "/home/mariana/projects/merlin/egs/speaker_adaptation/s1/database/labels/"
+    work_dir = os.getcwd()
 
-    wav_dir = "/home/mariana/projects/merlin/egs/speaker_adaptation/s1/database/wav/"
+    wav_dir = os.path.join(work_dir, 'slt_wav')
     lab_dir = os.path.join(work_dir, 'label_no_align')
     lab_align_dir = os.path.join(work_dir, 'label_state_align')
 

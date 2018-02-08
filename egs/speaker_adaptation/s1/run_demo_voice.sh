@@ -28,7 +28,7 @@ if [ "$train_tts" = true ]; then
 
     # step 5: train duration model
     ./05_train_duration_model.sh conf/duration_${voice_name}.conf
-    
+
     # step 6: train acoustic model
     ./06_train_acoustic_model.sh conf/acoustic_${voice_name}.conf
 
@@ -49,7 +49,7 @@ fi
 if [ "$do_adaptation" = true ]; then
     # step 8: run setup
  #   ./08_setup_adapt.sh adapt_p234 experiments/vctk_avm/duration_model/nnets_model/feed_forward_6_tanh.model experiments/vctk_avm/acoustic_model/nnets_model/feed_forward_6_tanh.model fine_tune
-    
+
   ./08_setup_adapt.sh adapt_p234 experiments/slt_arctic/duration_model/nnets_model/feed_forward_6_tanh.model experiments/slt_arctic/acoustic_model/nnets_model/feed_forward_6_tanh.model fine_tune
 
     # step 9: prepare labels
@@ -66,7 +66,6 @@ if [ "$do_adaptation" = true ]; then
     ./12_adapt_duration_model.sh conf/duration_adapt_p234_fine_tune.conf
 
     # step 13: adapt duration model
-    #./13_adapt_acoustic_model.sh conf/duration_adapt_p234_fine_tune.conf
     ./13_adapt_acoustic_model.sh conf/acoustic_adapt_p234_fine_tune.conf
 
 fi

@@ -8,9 +8,9 @@ if test "$#" -ne 3; then
     echo "Usage:"
     echo "./09_prepare_labels.sh <path_to_wav_dir> <path_to_text_dir> <path_to_labels_dir>"
     echo ""
-    echo "default path to wav dir(Input): database_$adapt_voice/wav"
-    echo "default path to txt dir(Input): database_$adapt_voice/txt"
-    echo "default path to lab dir(Output): database_$adapt_voice/labels"
+    echo "default path to wav dir(Input): database/wav"
+    echo "default path to txt dir(Input): database/txt"
+    echo "default path to lab dir(Output): database/labels"
     echo "################################"
     exit 1
 fi
