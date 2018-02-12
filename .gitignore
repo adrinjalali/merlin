@@ -14,3 +14,13 @@ experiments/
 SPTK*
 build/
 bin/
+tools/bin
+tools/festvox
+tools/festival
+tools/htk
+tools/postfilter
+tools/REAPER
+tools/speech_tools
+
+# VCTK-Corpus
+egs/speaker_adaptation/s1/VCTK-Corpus

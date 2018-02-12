@@ -1,0 +1,30 @@
+Prerequisites:
+-cmake
+-ncurses (libncurses5-dev)
+
+1. Install tools
+{MERLIN}/tools/compile_tools.sh
+{MERLIN}/tools/compile_other_speech_tools.sh
+
+(It may be necessary to download HTK3.4.1 and HDecode manually from htk.eng.cam.ac.uk and place the .zip files in the {MERLIN}/tools dir before executing the next line)
+
+{MERLIN}/tools/compile_htk.sh
+
+2. Link necessary files to Festival
+Create links to the following files:
+
+{MERLIN}/tools/speech_tools/lib/siod/siod.scm
+{MERLIN}/tools/speech_tools/lib/siod/cstr.scm
+{MERLIN}/tools/speech_tools/lib/siod/web.scm
+
+in the following directory:
+{MERLIN}/festival/lib
+
+3. Make dumpfeats:
+In the following directory:
+{MERLIN}/tools/festival/examples
+
+Run:
+./make
+
+4. From there, run the enumerated scripts in this directory in order. The end result will be a trained voice and some test output files.

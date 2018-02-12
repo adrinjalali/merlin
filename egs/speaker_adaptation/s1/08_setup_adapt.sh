@@ -5,7 +5,7 @@ if test "$#" -ne 4; then
     echo "Usage:"
     echo "./08_setup_adapt.sh <voice_name> <duration_trained_model_full_path> <acoustic_trained_model_full_path> <adaptation_method>"
     echo ""
-    echo "eg., ./08_setup_adapt.sh adapt_p234 experiments/VCTK_avg/duration_model/nnets_model/feed_forward_6_tanh.model experiments/VCTK_avg/acoustic_model/nnets_model/feed_forward_6_tanh.model fine_tune "
+    echo "eg., ./08_setup_adapt.sh adapt_p234 experiments/$voice_name/duration_model/nnets_model/feed_forward_6_tanh.model experiments/$voice_name/acoustic_model/nnets_model/feed_forward_6_tanh.model fine_tune "
     echo "################################"
     exit 1
 fi
@@ -13,7 +13,8 @@ fi
 setup_data=true
 
 # Adapt one speaker on the AVM
-adapt_voice="p234"
+#adapt_voice="p234"
+adapt_voice="p238"
 
 # setup directory structure and copy the data
 if [ "$setup_data" = true ]; then
@@ -94,9 +95,9 @@ echo "######### No. of files ###############" >> $global_config_file
 echo "######################################" >> $global_config_file
 echo "" >> $global_config_file
 
-echo "Train=307" >> $global_config_file 
-echo "Valid=25" >> $global_config_file 
-echo "Test=25" >> $global_config_file 
+echo "Train=307" >> $global_config_file
+echo "Valid=25" >> $global_config_file
+echo "Test=25" >> $global_config_file
 echo "" >> $global_config_file
 
 echo "######################################" >> $global_config_file
@@ -104,15 +105,15 @@ echo "############# TOOLS ##################" >> $global_config_file
 echo "######################################" >> $global_config_file
 echo "" >> $global_config_file
 
-#echo "ESTDIR=${merlin_dir}/tools/speech_tools" >> $global_config_file
-#echo "FESTDIR=${merlin_dir}/tools/festival" >> $global_config_file
-#echo "FESTVOXDIR=${merlin_dir}/tools/festvox" >> $global_config_file
-echo "ESTDIR=/l/SRC/speech_tools/bin" >> $global_config_file
-echo "FESTDIR=/l/SRC/festival_2_4/festival" >> $global_config_file
-echo "FESTVOXDIR=/l/SRC/festvox/" >> $global_config_file
+echo "ESTDIR=${merlin_dir}/tools/speech_tools" >> $global_config_file
+echo "FESTDIR=${merlin_dir}/tools/festival" >> $global_config_file
+echo "FESTVOXDIR=${merlin_dir}/tools/festvox" >> $global_config_file
+#echo "ESTDIR=/l/SRC/speech_tools/bin" >> $global_config_file
+#echo "FESTDIR=/l/SRC/festival_2_4/festival" >> $global_config_file
+#echo "FESTVOXDIR=/l/SRC/festvox/" >> $global_config_file
 echo "" >> $global_config_file
-#echo "HTKDIR=${merlin_dir}/tools/bin/htk" >> $global_config_file
-echo "HTKDIR=/l/SRC/htk-3.5/bin" >> $global_config_file
+echo "HTKDIR=${merlin_dir}/tools/bin/htk" >> $global_config_file
+#echo "HTKDIR=/l/SRC/htk-3.5/bin" >> $global_config_file
 echo "" >> $global_config_file
 
 echo "Step 1:"

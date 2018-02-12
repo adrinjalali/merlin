@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 global_config_file=conf/global_settings_adapt.cfg
